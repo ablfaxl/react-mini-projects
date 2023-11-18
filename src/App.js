@@ -1,110 +1,52 @@
 import { useState } from "react";
-
-//076
-const initialItems = [
-  { id: 1, description: "Passports", quantity: 2, packed: false },
-  { id: 2, description: "Socks", quantity: 12, packed: true },
-];
+import "./index.css";
 
 export default function App() {
   return (
-    <div className="app">
-      <Logo />
-      <From />
-      <PackingList />
-      <Stats />
+    <div className="App">
+      <Counter />
     </div>
   );
 }
 
-function Logo() {
-  return <h1>Far Away</h1>;
-}
+function Counter() {
+  const [count, setCount] = useState(0);
+  const [step, setStep] = useState(1);
 
-function From() {
-  const [description, setDescription] = useState("");
-  const [quantity, setQuantity] = useState(1);
-
-  function handleSubmit(e) {
-    e.preventDefault();
-
-    if (!description) return;
-
-    const newItem = {
-      description,
-      quantity,
-      packed: false,
-      id: Date.now(),
-    };
-    console.log(newItem);
-
-    setDescription("");
-    setQuantity(1);
-  }
+  const date = new Date("june 21 2027");
+  date.setDate(date.getDate() + count);
 
   return (
-    <form className="add-form" onSubmit={handleSubmit}>
-      <h3>What do you need for your trip ?</h3>
-      <select value={quantity} onChange={(e) => setQuantity(e.target.value)}>
-        {Array.from({ length: 20 }, (_, i) => i + 1).map((num) => (
-          <option value={num} key={num}>
-            {num}
-          </option>
-        ))}
-      </select>
-      <input
-        type="text"
-        placeholder="Item here ..."
-        value={description}
-        onChange={(e) => setDescription(e.target.value)}
-      />
-      <button>Add</button>
-    </form>
-  );
-}
+    <div>
+      <div>
+        <input
+          type="range"
+          min="0"
+          max="10"
+          value={step}
+          onChange={(e) => setStep(Number(e.target.value))}
+        />
+        <button onClick={() => setStep((c) => c - 1)}>-</button>
+        <span>Step: {step}</span>
+        <button onClick={() => setStep((c) => c + 1)}>+</button>
+      </div>
 
-function PackingList() {
-  return (
-    <div className="list">
-      <ul>
-        {initialItems.map((item) => (
-          <Item key={item.id} item={item} />
-        ))}
-      </ul>
+      <div>
+        <button onClick={() => setCount((c) => c - step)}>-</button>
+        <span>Count: {count}</span>
+        <button onClick={() => setCount((c) => c + step)}>+</button>
+      </div>
+
+      <p>
+        <span>
+          {count === 0
+            ? "Today is "
+            : count > 0
+            ? `${count} days from today is `
+            : `${Math.abs(count)} days ago was `}
+        </span>
+        <span>{date.toDateString()}</span>
+      </p>
     </div>
-  );
-}
-
-function Item({ item }) {
-  const deleteItem = (id) => console.log(`item with id of ${id} deleted`);
-  return (
-    <li>
-      <span
-        style={
-          item.packed
-            ? { textDecoration: "line-through" }
-            : { textDecoration: "none" }
-        }
-      >
-        {item.quantity} {item.description}
-      </span>
-      <button
-        onClick={() => {
-          deleteItem(item.id);
-        }}
-      >
-        ❌
-      </button>
-    </li>
-  );
-}
-
-function Stats() {
-  return (
-    <em>
-      <footer className="stats">
-        You have X items on your list, and you already packed X%
-      </footer>
-    </em>
   );
 }
