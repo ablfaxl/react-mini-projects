@@ -16,6 +16,11 @@ function Counter() {
   const date = new Date("june 21 2027");
   date.setDate(date.getDate() + count);
 
+  const handleReset = () => {
+    setCount(0);
+    setStep(1);
+  };
+
   return (
     <div>
       <div>
@@ -47,6 +52,11 @@ function Counter() {
         </span>
         <span>{date.toDateString()}</span>
       </p>
+      {count !== 0 || step !== 1 ? (
+        <div>
+          <button onClick={handleReset}>Reset</button>
+        </div>
+      ) : null}
     </div>
   );
 }
