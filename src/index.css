@@ -69,6 +69,10 @@ input {
   cursor: pointer;
 }
 
+button:disabled {
+  background-color: gray;
+}
+
 .add-form button {
   text-transform: uppercase;
   background-color: #76c7ad;
