@@ -42,8 +42,8 @@ export default function App() {
               //   text="Pervious"
               //   emoji="👈"
             >
-              Pervious
               <span>👈</span>
+              Pervious
             </Button>
 
             <Button
