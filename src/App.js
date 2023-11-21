@@ -35,29 +35,44 @@ export default function App() {
           </p>
 
           <div className="buttons">
-            <button
-              disabled={step === 1}
+            <Button
+              bgColor="#7950f2"
+              textColor="#fff"
               onClick={handlePervious}
-              style={{
-                backgroundColor: step === 1 ? "#cccccc" : "#7950f2",
-                color: step === 1 ? "" : "#fff",
-              }}
+              //   text="Pervious"
+              //   emoji="👈"
             >
               Pervious
-            </button>
-            <button
-              disabled={step === 3}
+              <span>👈</span>
+            </Button>
+
+            <Button
+              bgColor="#7950f2"
+              textColor="#fff"
               onClick={handleNext}
-              style={{
-                backgroundColor: step === 3 ? "#cccccc" : "#7950f2",
-                color: step === 1 ? "" : "#fff",
-              }}
+              //   text="Next"
+              //   emoji="👉"
             >
               Next
-            </button>
+              <span>👉</span>
+            </Button>
           </div>
         </div>
       )}
     </div>
+  );
+}
+
+function Button({ textColor, bgColor, onClick, children }) {
+  return (
+    <button
+      style={{
+        backgroundColor: bgColor,
+        color: textColor,
+      }}
+      onClick={onClick}
+    >
+      {children}
+    </button>
   );
 }
