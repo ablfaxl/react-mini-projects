@@ -77,8 +77,8 @@ function NavBar({ children }) {
       className="
     nav-bar"
     >
-      <Search />
       <Logo />
+      <Search />
       {children}
     </nav>
   );
