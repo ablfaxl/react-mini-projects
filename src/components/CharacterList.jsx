@@ -1,5 +1,4 @@
 import { EyeIcon } from '@heroicons/react/24/outline';
-import React from 'react';
 
 const CharacterList = ({ characters }) => {
   return (
@@ -17,20 +16,30 @@ function Character({ character }) {
   return (
     <div className="list__item">
       <img src={character.image} alt={character.name} />
-      <h3 className="name">
-        <span>{character.gender === 'Male' ? '👱‍♂️' : '👩‍🦰'}</span>
-        <span>{character.name}</span>
-      </h3>
-      <div className="list-item__info info">
-        <span
-          className={`status ${character.status === 'Dead' && 'red'}`}
-        ></span>
-        <span> {character.status} </span>
-        <span> - {character.species}</span>
-      </div>
+      <CharacterName item={character} />
+      <CharacterInfo item={character} />
       <button className="icon red">
         <EyeIcon />
       </button>
+    </div>
+  );
+}
+
+function CharacterName({ item }) {
+  return (
+    <h3 className="name">
+      <span>{item.gender === 'Male' ? '👱‍♂️' : '👩‍🦰'}</span>
+      <span>{item.name}</span>
+    </h3>
+  );
+}
+
+function CharacterInfo({ item }) {
+  return (
+    <div className="list-item__info info">
+      <span className={`status ${item.status === 'Dead' && 'red'}`}></span>
+      <span> {item.status} </span>
+      <span> - {item.species}</span>
     </div>
   );
 }
