@@ -27,6 +27,7 @@ export function App() {
         console.log('error', error.message);
         setIsLoading(false);
       } finally {
+        setIsLoading(false);
       }
     }
     fetchAllCharacters();
