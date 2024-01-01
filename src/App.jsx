@@ -11,6 +11,7 @@ import axios from 'axios';
 export function App() {
   const [characters, setCharacters] = useState([]);
   const [isLoading, setIsLoading] = useState(false);
+  const [query, setQuery] = useState('');
 
   useEffect(() => {
     async function fetchAllCharacters() {
