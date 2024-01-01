@@ -36,7 +36,7 @@ export function App() {
     <div className="app">
       <Toaster />
       <Navbar>
-        <Search />
+        <Search query={query} setQuery={setQuery} />
         <SearchResult numOfResult={characters?.length} />
       </Navbar>
       <div className="main">
