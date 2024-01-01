@@ -4,19 +4,19 @@ import { useEffect, useState } from 'react';
 import axios from 'axios';
 
 const CharacterDetail = ({ selectedId }) => {
-  // const [character, setCharacter] = useState(null);
+  const [character, setCharacter] = useState(null);
 
-  // useEffect(() => {
-  //   async function getCharaterDetail() {
-  //     const { data } = axios.get(
-  //       `https://rickandmortyapi.com/api/character/${selectedId}`
-  //     );
-  //     setCharacter(data);
-  //   }
-  //   if (selectedId) {
-  //     getCharaterDetail();
-  //   }
-  // }, []);
+  useEffect(() => {
+    async function getCharaterDetail() {
+      const { data } = axios.get(
+        `https://rickandmortyapi.com/api/character/${selectedId}`
+      );
+      setCharacter(data);
+    }
+    if (selectedId) {
+      getCharaterDetail();
+    }
+  }, []);
 
   if (!character) {
     return (
