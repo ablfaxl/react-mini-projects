@@ -13,12 +13,13 @@ const CharacterList = ({ characters }) => {
 export default CharacterList;
 
 function Character({ character }) {
+  const onSelectCharacter = () => {};
   return (
     <div className="list__item">
       <img src={character.image} alt={character.name} />
       <CharacterName item={character} />
       <CharacterInfo item={character} />
-      <button className="icon red">
+      <button className="icon red" onClick={onSelectCharacter}>
         <EyeIcon />
       </button>
     </div>
