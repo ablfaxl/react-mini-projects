@@ -9,7 +9,7 @@ import Loading from './components/Loading';
 export function App() {
   const [characters, setCharacters] = useState([]);
   const [isLoading, setIsLoading] = useState(false);
-  const [error, setError] = useState(null);
+
   useEffect(() => {
     async function fetchAllCharacters() {
       try {
