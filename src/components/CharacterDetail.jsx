@@ -8,7 +8,7 @@ const CharacterDetail = ({ selectedId }) => {
 
   useEffect(() => {
     async function getCharaterDetail() {
-      const { data } = axios.get(
+      const { data } = await axios.get(
         `https://rickandmortyapi.com/api/character/${selectedId}`
       );
       setCharacter(data);
