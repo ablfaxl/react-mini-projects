@@ -4,7 +4,11 @@ const CharacterList = ({ characters, onSelectCharacter }) => {
   return (
     <div className="characters-list">
       {characters?.map((character) => (
-        <Character key={character.id} character={character} />
+        <Character
+          key={character.id}
+          character={character}
+          onSelectCharacter={onSelectCharacter}
+        />
       ))}
     </div>
   );
