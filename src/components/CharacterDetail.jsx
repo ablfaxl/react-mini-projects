@@ -6,16 +6,21 @@ import toast from 'react-hot-toast';
 
 const CharacterDetail = ({ selectedId }) => {
   const [character, setCharacter] = useState(null);
+  const [isLoading, setIsLoading] = useState(false);
 
   useEffect(() => {
     async function getCharaterDetail() {
       try {
+        setIsLoading(true);
         const { data } = await axios.get(
           `https://rickandmortyapi.com/api/character/${selectedId}`
         );
         setCharacter(data);
+        setIsLoading(false);
       } catch (error) {
         toast.error(error.response?.data?.error || 'Something went wrong');
+      } finally {
+        setIsLoading(false);
       }
     }
     if (selectedId) {
