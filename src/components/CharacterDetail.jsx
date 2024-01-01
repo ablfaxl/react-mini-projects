@@ -1,7 +1,7 @@
 import { ArrowUpCircleIcon } from '@heroicons/react/24/outline';
 import { character, episodes } from '../data/data';
 
-const CharacterDetail = () => {
+const CharacterDetail = ({ selectedId }) => {
   return (
     <div style={{ flex: 1 }}>
       <div className="character-detail">
