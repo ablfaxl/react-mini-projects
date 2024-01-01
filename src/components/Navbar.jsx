@@ -14,7 +14,7 @@ export default Navbar;
 function Logo() {
   return <div className="navbar__logo">LOGO 🤘🏾👽</div>;
 }
-export function Search() {
+export function Search({ query, setQuery }) {
   return <input type="text" className="text-field" placeholder="search ..." />;
 }
 export function SearchResult({ numOfResult }) {
