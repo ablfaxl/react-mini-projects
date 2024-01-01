@@ -17,6 +17,9 @@ export function App() {
         const response = await fetch(
           'https://rickandmortyapi.com/api/character'
         );
+        if (!response.ok) {
+          throw new Error(response.statusText);
+        }
         const data = await response.json();
         setCharacters(data.results);
         setIsLoading(false);
