@@ -11,6 +11,7 @@ export function App() {
 
   useEffect(() => {
     async function fetchAllCharacters() {
+      setIsLoading(true);
       const response = await fetch('https://rickandmortyapi.com/api/character');
       const data = await response.json();
       setCharacters(data.results);
