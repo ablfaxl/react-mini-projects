@@ -39,7 +39,7 @@ export function App() {
   }, [query]);
 
   const handleSelectCharacter = (id) => {
-    selectedId(id);
+    setSelectedId(id);
   };
 
   return (
