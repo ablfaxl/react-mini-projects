@@ -17,13 +17,10 @@ export function App() {
       try {
         setIsLoading(true);
         const response = await axios.get(
-          'https://rickandmortyapi.com/api/characters'
+          'https://rickandmortyapi.com/api/character'
         );
-        if (!response.ok) {
-          throw new Error('Something went wrong!');
-        }
-        const data = await response.json();
-        setCharacters(data.results);
+
+        // setCharacters(data.results);
         setIsLoading(false);
       } catch (error) {
         console.log('error', error.message);
