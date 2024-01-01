@@ -4,6 +4,7 @@ import { allCharacters } from './data/data';
 import CharacterDetail from './components/CharacterDetail';
 import CharacterList from './components/CharacterList';
 import Navbar, { SearchResult } from './components/Navbar';
+import Loading from './components/Loading';
 
 export function App() {
   const [characters, setCharacters] = useState([]);
@@ -26,7 +27,7 @@ export function App() {
         <SearchResult numOfResult={characters.length} />
       </Navbar>
       <div className="main">
-        <CharacterList characters={characters} />
+        {isLoading ? <Loading /> : <CharacterList characters={characters} />}
         <CharacterDetail />
       </div>
     </div>
