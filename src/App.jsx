@@ -17,7 +17,7 @@ export function App() {
       try {
         setIsLoading(true);
         const { data } = await axios.get(
-          'https://rickandmortyapi.com/api/characters'
+          'https://rickandmortyapi.com/api/character'
         );
         setCharacters(data.results);
         setIsLoading(false);
