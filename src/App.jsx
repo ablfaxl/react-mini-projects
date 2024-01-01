@@ -9,11 +9,12 @@ export function App() {
   const [characters, setCharacters] = useState([]);
 
   useEffect(() => {
-    fetch('https://rickandmortyapi.com/api/character').then((res) =>
-      res.json().then((data) => {
-        setCharacters(data.results);
-      })
-    );
+    async function fetchAllCharacters() {
+      const response = await fetch('https://rickandmortyapi.com/api/character');
+      const data = await response.json();
+      setCharacters(data.results);
+    }
+    fetchAllCharacters();
   }, []);
 
   return (
