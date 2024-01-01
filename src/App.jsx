@@ -5,7 +5,7 @@ import CharacterDetail from './components/CharacterDetail';
 import CharacterList from './components/CharacterList';
 import Navbar, { SearchResult } from './components/Navbar';
 import Loading from './components/Loading';
-import { Toaster } from 'react-hot-toast';
+import toast, { Toaster } from 'react-hot-toast';
 
 export function App() {
   const [characters, setCharacters] = useState([]);
@@ -26,6 +26,7 @@ export function App() {
         setIsLoading(false);
       } catch (error) {
         console.log('error', error.message);
+        toast.error(error.message);
         setIsLoading(false);
       } finally {
         setIsLoading(false);
