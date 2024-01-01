@@ -30,7 +30,7 @@ export function App() {
       }
     }
     fetchAllCharacters();
-  }, []);
+  }, [query]);
 
   return (
     <div className="app">
