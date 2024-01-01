@@ -16,7 +16,7 @@ const CharacterDetail = ({ selectedId }) => {
     if (selectedId) {
       getCharaterDetail();
     }
-  }, []);
+  }, [selectedId]);
 
   if (!character) {
     return (
