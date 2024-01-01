@@ -20,7 +20,7 @@ export function App() {
           'https://rickandmortyapi.com/api/character'
         );
 
-        // setCharacters(data.results);
+        setCharacters(data.results);
         setIsLoading(false);
       } catch (error) {
         console.log('error', error.message);
