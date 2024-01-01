@@ -29,6 +29,11 @@ export function App() {
         setIsLoading(false);
       }
     }
+    if (query.length > 3) {
+      setCharacters([]);
+      return;
+    }
+
     fetchAllCharacters();
   }, [query]);
 
