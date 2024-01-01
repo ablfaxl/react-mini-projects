@@ -16,7 +16,7 @@ export function App() {
     async function fetchAllCharacters() {
       try {
         setIsLoading(true);
-        const response = await fetch(
+        const response = await axios.get(
           'https://rickandmortyapi.com/api/characters'
         );
         if (!response.ok) {
