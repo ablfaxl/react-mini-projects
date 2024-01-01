@@ -2,16 +2,21 @@ import { ArrowUpCircleIcon } from '@heroicons/react/24/outline';
 import { character, episodes } from '../data/data';
 import { useEffect, useState } from 'react';
 import axios from 'axios';
+import toast from 'react-hot-toast';
 
 const CharacterDetail = ({ selectedId }) => {
   const [character, setCharacter] = useState(null);
 
   useEffect(() => {
     async function getCharaterDetail() {
-      const { data } = await axios.get(
-        `https://rickandmortyapi.com/api/character/${selectedId}`
-      );
-      setCharacter(data);
+      try {
+        const { data } = await axios.get(
+          `https://rickandmortyapi.com/api/character/${selectedId}`
+        );
+        setCharacter(data);
+      } catch (error) {
+        toast.error(error.response?.data?.error || 'Something went wrong');
+      }
     }
     if (selectedId) {
       getCharaterDetail();
