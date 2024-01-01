@@ -14,7 +14,7 @@ const Navbar = ({ children }) => {
 export default Navbar;
 
 function Logo() {
-  return <div className="navbar__logo">LOGO 👽</div>;
+  return <div className="navbar__logo">LOGO 🤘🏾👽</div>;
 }
 function Search() {
   return <input type="text" className="text-field" placeholder="search ..." />;
