@@ -13,7 +13,9 @@ const CharacterList = ({ characters }) => {
 export default CharacterList;
 
 function Character({ character }) {
-  const onSelectCharacter = () => {};
+  const onSelectCharacter = () => {
+    console.log(character.id);
+  };
   return (
     <div className="list__item">
       <img src={character.image} alt={character.name} />
