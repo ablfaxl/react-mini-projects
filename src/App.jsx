@@ -37,6 +37,8 @@ export function App() {
     fetchAllCharacters();
   }, [query]);
 
+  const handleSelectCharacter = (id) => {};
+
   return (
     <div className="app">
       <Toaster />
@@ -45,7 +47,14 @@ export function App() {
         <SearchResult numOfResult={characters?.length} />
       </Navbar>
       <div className="main">
-        {isLoading ? <Loading /> : <CharacterList characters={characters} />}
+        {isLoading ? (
+          <Loading />
+        ) : (
+          <CharacterList
+            characters={characters}
+            onSelectCharacter={handleSelectCharacter}
+          />
+        )}
         <CharacterDetail />
       </div>
     </div>
