@@ -3,6 +3,7 @@ import { character, episodes } from '../data/data';
 import { useEffect, useState } from 'react';
 import axios from 'axios';
 import toast from 'react-hot-toast';
+import Loading from './Loading';
 
 const CharacterDetail = ({ selectedId }) => {
   const [character, setCharacter] = useState(null);
@@ -27,6 +28,14 @@ const CharacterDetail = ({ selectedId }) => {
       getCharaterDetail();
     }
   }, [selectedId]);
+
+  if (isLoading) {
+    return (
+      <div style={{ color: 'var(--slate-300)', flex: 1 }}>
+        <Loading />
+      </div>
+    );
+  }
 
   if (!character) {
     return (
