@@ -24,7 +24,7 @@ export function App() {
         setIsLoading(false);
       } catch (error) {
         console.log('error', error.message);
-        toast.error(error.message);
+        toast.error(error.response?.data?.error || 'Something went wrong');
       } finally {
         setIsLoading(false);
       }
