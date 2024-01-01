@@ -15,10 +15,10 @@ export function App() {
       try {
         setIsLoading(true);
         const response = await fetch(
-          'https://rickandmortyapi.com/api/character'
+          'https://rickandmortyapi.com/api/characters'
         );
         if (!response.ok) {
-          throw new Error(response.statusText);
+          throw new Error('Something went wrong!');
         }
         const data = await response.json();
         setCharacters(data.results);
