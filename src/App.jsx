@@ -7,6 +7,7 @@ import Navbar, { SearchResult } from './components/Navbar';
 
 export function App() {
   const [characters, setCharacters] = useState([]);
+  const [isLoading, setIsLoading] = useState(false);
 
   useEffect(() => {
     async function fetchAllCharacters() {
