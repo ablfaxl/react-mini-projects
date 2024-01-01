@@ -1,6 +1,6 @@
 import { EyeIcon } from '@heroicons/react/24/outline';
 
-const CharacterList = ({ characters }) => {
+const CharacterList = ({ characters, onSelectCharacter }) => {
   return (
     <div className="characters-list">
       {characters?.map((character) => (
