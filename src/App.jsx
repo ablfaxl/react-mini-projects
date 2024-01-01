@@ -3,7 +3,7 @@ import './App.css';
 import { allCharacters } from './data/data';
 import CharacterDetail from './components/CharacterDetail';
 import CharacterList from './components/CharacterList';
-import Navbar, { SearchResult } from './components/Navbar';
+import Navbar, { Search, SearchResult } from './components/Navbar';
 import Loading from './components/Loading';
 import toast, { Toaster } from 'react-hot-toast';
 import axios from 'axios';
@@ -35,6 +35,7 @@ export function App() {
     <div className="app">
       <Toaster />
       <Navbar>
+        <Search />
         <SearchResult numOfResult={characters?.length} />
       </Navbar>
       <div className="main">
