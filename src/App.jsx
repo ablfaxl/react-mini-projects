@@ -5,6 +5,7 @@ import CharacterDetail from './components/CharacterDetail';
 import CharacterList from './components/CharacterList';
 import Navbar, { SearchResult } from './components/Navbar';
 import Loading from './components/Loading';
+import { Toaster } from 'react-hot-toast';
 
 export function App() {
   const [characters, setCharacters] = useState([]);
@@ -35,6 +36,7 @@ export function App() {
 
   return (
     <div className="app">
+      <Toaster />
       <Navbar>
         <SearchResult numOfResult={characters?.length} />
       </Navbar>
