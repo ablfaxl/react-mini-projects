@@ -6,6 +6,7 @@ import CharacterList from './components/CharacterList';
 import Navbar, { SearchResult } from './components/Navbar';
 import Loading from './components/Loading';
 import toast, { Toaster } from 'react-hot-toast';
+import axios from 'axios';
 
 export function App() {
   const [characters, setCharacters] = useState([]);
