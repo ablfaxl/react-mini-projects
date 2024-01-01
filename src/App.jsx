@@ -38,7 +38,9 @@ export function App() {
     fetchAllCharacters();
   }, [query]);
 
-  const handleSelectCharacter = (id) => {};
+  const handleSelectCharacter = (id) => {
+    selectedId(id);
+  };
 
   return (
     <div className="app">
