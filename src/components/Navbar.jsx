@@ -5,7 +5,6 @@ const Navbar = ({ children }) => {
       <Logo />
       <Search />
       {children}
-      <SearchResult />
       <Favorite />
     </nav>
   );
@@ -16,7 +15,7 @@ export default Navbar;
 function Logo() {
   return <div className="navbar__logo">LOGO 🤘🏾👽</div>;
 }
-function Search() {
+export function Search() {
   return <input type="text" className="text-field" placeholder="search ..." />;
 }
 export function SearchResult({ numOfResult }) {
