@@ -4,6 +4,12 @@ import { useState } from 'react';
 
 const CharacterDetail = ({ selectedId }) => {
   const [character, setCharacter] = useState(null);
+  if (!character)
+    return (
+      <div style={{ color: 'var(--slate-300)', flex: 1 }}>
+        please select character
+      </div>
+    );
   return (
     <div style={{ flex: 1 }}>
       <div className="character-detail">
