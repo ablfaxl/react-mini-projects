@@ -30,7 +30,7 @@ export function App() {
   return (
     <div className="app">
       <Navbar>
-        <SearchResult numOfResult={characters.length} />
+        <SearchResult numOfResult={characters?.length} />
       </Navbar>
       <div className="main">
         {isLoading ? <Loading /> : <CharacterList characters={characters} />}
