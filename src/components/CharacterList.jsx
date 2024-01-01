@@ -12,16 +12,16 @@ const CharacterList = ({ characters }) => {
 
 export default CharacterList;
 
-function Character({ character }) {
-  const onSelectCharacter = () => {
-    console.log(character.id);
-  };
+function Character({ character, onSelectCharacter }) {
   return (
     <div className="list__item">
       <img src={character.image} alt={character.name} />
       <CharacterName item={character} />
       <CharacterInfo item={character} />
-      <button className="icon red" onClick={onSelectCharacter}>
+      <button
+        className="icon red"
+        onClick={() => onSelectCharacter(character.id)}
+      >
         <EyeIcon />
       </button>
     </div>
