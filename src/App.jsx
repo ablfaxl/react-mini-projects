@@ -58,7 +58,7 @@ export function App() {
             onSelectCharacter={handleSelectCharacter}
           />
         )}
-        <CharacterDetail />
+        <CharacterDetail selectedId={selectedId} />
       </div>
     </div>
   );
