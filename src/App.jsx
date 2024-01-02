@@ -1,6 +1,5 @@
 import { useEffect, useState } from 'react';
 import './App.css';
-import { allCharacters } from './data/data';
 import CharacterDetail from './components/CharacterDetail';
 import CharacterList from './components/CharacterList';
 import Navbar, { Search, SearchResult } from './components/Navbar';
@@ -21,6 +20,8 @@ export function App() {
         const { data } = await axios.get(
           `https://rickandmortyapi.com/api/character?name=${query}`
         );
+        const episodesId = data.episode.map((e)=> e.split('/').at(-1))
+        console.log(episodesId)
         setCharacters(data.results);
         setIsLoading(false);
       } catch (error) {
