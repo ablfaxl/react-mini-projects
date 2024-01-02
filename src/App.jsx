@@ -49,7 +49,7 @@ export function App() {
       <Navbar>
         <Search query={query} setQuery={setQuery} />
         <SearchResult numOfResult={characters?.length} />
-        <Favorite />
+        <Favorite nameOfFavories={favorite.length} />
       </Navbar>
       <div className="main">
         {isLoading ? (

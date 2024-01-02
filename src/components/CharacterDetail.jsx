@@ -4,7 +4,7 @@ import axios from 'axios';
 import toast from 'react-hot-toast';
 import Loading from './Loading';
 
-const CharacterDetail = ({ selectedId }) => {
+const CharacterDetail = ({ selectedId, onAddFavorite }) => {
   const [character, setCharacter] = useState(null);
   const [isLoading, setIsLoading] = useState(false);
   const [episodes, setEpisodes] = useState([]);
@@ -76,7 +76,12 @@ const CharacterDetail = ({ selectedId }) => {
             <span>{character.location.name}</span>
           </div>
           <div className="actions">
-            <button className="btn btn--primary">Add to Favorite</button>
+            <button
+              onClick={() => onAddFavorite(character)}
+              className="btn btn--primary"
+            >
+              Add to Favorite
+            </button>
           </div>
         </div>
       </div>
