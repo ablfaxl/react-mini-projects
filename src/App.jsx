@@ -45,7 +45,7 @@ export function App() {
   const handleAddFavorite = (char) => {
     setFavorite((prevFav) => [...prevFav, char]);
   };
-  const isAddedToFavorite = (char) => favorite.some((c) => c.id === char.id);
+  const isAddedToFavorite = favorite.some((char) => char.id === selectedId);
   return (
     <div className="app">
       <Toaster />
