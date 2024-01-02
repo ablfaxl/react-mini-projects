@@ -107,6 +107,7 @@ function CharacterSubInfo({ character, isAddedToFavorite, onAddFavorite }) {
 }
 
 function EpisodeList({ episodes }) {
+  const [sortBy, setSortBy] = useState(false);
   return (
     <div className="character-episodes">
       <div className="title">
