@@ -30,7 +30,7 @@ export function SearchResult({ numOfResult }) {
   return <div className="navbar__result">Found {numOfResult} characters</div>;
 }
 
-export function Favorite({ nameOfFavories }) {
+export function Favorite({ favorite }) {
   const [isOpen, setIsOpen] = useState(false);
 
   return (
