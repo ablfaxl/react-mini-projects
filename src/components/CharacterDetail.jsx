@@ -21,7 +21,7 @@ const CharacterDetail = ({ selectedId }) => {
         const { data: episodeData } = await axios.get(
           `https://rickandmortyapi.com/api/episode/${episodesId}`
         );
-        setEpisodes(episodeData.slice(0, 6));
+        setEpisodes(episodeData);
         setCharacter(data);
         setIsLoading(false);
       } catch (error) {
