@@ -43,12 +43,9 @@ export function App() {
     setSelectedId(id);
   };
   const handleAddFavorite = (char) => {
-    if (favorite.find((f) => f.id === char.id)) {
-      return;
-    }
     setFavorite((prevFav) => [...prevFav, char]);
   };
-
+  const isAddedToFavorite = (char) => favorite.some((c) => c.id === char.id);
   return (
     <div className="app">
       <Toaster />
