@@ -15,8 +15,8 @@ export function App() {
   const [favorite, setFavorite] = useState([]);
 
   useEffect(() => {
-    const abortController = new AbortController();
-    const signal = abortController.signal;
+    const controller = new AbortController();
+    const signal = controller.signal;
 
     async function fetchAllCharacters() {
       try {
@@ -29,20 +29,20 @@ export function App() {
         setCharacters(data.results);
         setIsLoading(false);
       } catch (error) {
-        console.log('error', error.message);
-        toast.error(error.response?.data?.error || 'Something went wrong');
+        if (axios.isCancel()) {
+          console.log('Canceld Succeccfully');
+        } else {
+          console.log('error', error.message);
+          toast.error(error.response?.data?.error || 'Something went wrong');
+        }
       } finally {
         setIsLoading(false);
       }
     }
 
-    // if (query.length > 3) {
-    //   setCharacters([]);
-    //   return;
-    // }
     fetchAllCharacters();
     return () => {
-      abortController.abort();
+      controller.abort();
     };
   }, [query]);
 
