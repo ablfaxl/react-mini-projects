@@ -12,7 +12,9 @@ export function App() {
   const [isLoading, setIsLoading] = useState(false);
   const [query, setQuery] = useState('');
   const [selectedId, setSelectedId] = useState(null);
-  const [favorite, setFavorite] = useState([]);
+  const [favorite, setFavorite] = useState(
+    () => JSON.parse(localStorage.getItem('FAVORITE')) || []
+  );
 
   useEffect(() => {
     const controller = new AbortController();
