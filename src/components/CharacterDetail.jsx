@@ -76,12 +76,16 @@ const CharacterDetail = ({ selectedId, onAddFavorite, isAddedToFavorite }) => {
             <span>{character.location.name}</span>
           </div>
           <div className="actions">
-            <button
-              onClick={() => onAddFavorite(character)}
-              className="btn btn--primary"
-            >
-              Add to Favorite
-            </button>
+            {isAddedToFavorite ? (
+              <p>Already Added to Favorite ✅</p>
+            ) : (
+              <button
+                onClick={() => onAddFavorite(character)}
+                className="btn btn--primary"
+              >
+                Add to Favorite
+              </button>
+            )}
           </div>
         </div>
       </div>
