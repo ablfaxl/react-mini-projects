@@ -42,6 +42,9 @@ export function App() {
   const handleSelectCharacter = (id) => {
     setSelectedId(id);
   };
+  const handleAddFavorite = (char) => {
+    setFavorite([...favorite, char]);
+  };
 
   return (
     <div className="app">
@@ -61,7 +64,10 @@ export function App() {
             onSelectCharacter={handleSelectCharacter}
           />
         )}
-        <CharacterDetail selectedId={selectedId} />
+        <CharacterDetail
+          selectedId={selectedId}
+          onAddFavorite={handleAddFavorite}
+        />
       </div>
     </div>
   );
