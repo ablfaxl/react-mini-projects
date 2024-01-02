@@ -23,9 +23,7 @@ export function App() {
         setIsLoading(true);
         const { data } = await axios.get(
           `https://rickandmortyapi.com/api/character?name=${query}`,
-          {
-            signal,
-          }
+          { signal }
         );
 
         setCharacters(data.results);
@@ -42,9 +40,10 @@ export function App() {
     //   setCharacters([]);
     //   return;
     // }
-
     fetchAllCharacters();
-    fetchAllCharacters();
+    return () => {
+      abortController.abort();
+    };
   }, [query]);
 
   const handleSelectCharacter = (id) => {
