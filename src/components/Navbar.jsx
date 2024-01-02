@@ -38,12 +38,7 @@ export function Favorite({ favorite }) {
     <>
       <Modal title="Favorite" open={isOpen} onOpen={setIsOpen}>
         {favorite.map((item) => (
-          <Character
-            key={item.id}
-            character={item}
-            onSelectCharacter={() => {}}
-            selectedId={''}
-          />
+          <Character key={item.id} character={item} />
         ))}
       </Modal>
       <button onClick={() => setIsOpen((o) => !o)} className="heart">
