@@ -35,7 +35,9 @@ export function Favorite({ nameOfFavories }) {
 
   return (
     <>
-      <Modal></Modal>
+      <Modal title="Favorite" open={isOpen} onOpen={setIsOpen}>
+        <p>{nameOfFavories}</p>
+      </Modal>
       <button onClick={() => setIsOpen((o) => !o)} className="heart">
         <HeartIcon className="icon" />
         <span className="badge">{nameOfFavories}</span>
