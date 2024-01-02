@@ -31,7 +31,7 @@ export function SearchResult({ numOfResult }) {
   return <div className="navbar__result">Found {numOfResult} characters</div>;
 }
 
-export function Favorite({ favorite }) {
+export function Favorite({ favorite, onDeleteFavorite }) {
   const [isOpen, setIsOpen] = useState(false);
 
   return (
@@ -39,7 +39,10 @@ export function Favorite({ favorite }) {
       <Modal title="Favorite" open={isOpen} onOpen={setIsOpen}>
         {favorite.map((item) => (
           <Character key={item.id} character={item}>
-            <button className="icon red">
+            <button
+              onClick={() => onDeleteFavorite(item.id)}
+              className="icon red"
+            >
               <TrashIcon />
             </button>
           </Character>
