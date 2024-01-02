@@ -4,7 +4,6 @@ const Navbar = ({ children }) => {
     <nav className="navbar">
       <Logo />
       {children}
-      <Favorite />
     </nav>
   );
 };
@@ -29,7 +28,7 @@ export function SearchResult({ numOfResult }) {
   return <div className="navbar__result">Found {numOfResult} characters</div>;
 }
 
-function Favorite() {
+export function Favorite() {
   return (
     <button className="heart">
       <HeartIcon className="icon" />
