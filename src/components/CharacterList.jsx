@@ -4,12 +4,7 @@ const CharacterList = ({ characters, onSelectCharacter, selectedId }) => {
   return (
     <div className="characters-list">
       {characters?.map((character) => (
-        <Character
-          key={character.id}
-          character={character}
-          onSelectCharacter={onSelectCharacter}
-          selectedId={selectedId}
-        >
+        <Character key={character.id} character={character}>
           <button
             className="icon red"
             onClick={() => onSelectCharacter(character.id)}
