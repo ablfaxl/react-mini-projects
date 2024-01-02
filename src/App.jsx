@@ -15,11 +15,17 @@ export function App() {
   const [favorite, setFavorite] = useState([]);
 
   useEffect(() => {
+    const abortController = new AbortController();
+    const signal = abortController.signal;
+
     async function fetchAllCharacters() {
       try {
         setIsLoading(true);
         const { data } = await axios.get(
-          `https://rickandmortyapi.com/api/character?name=${query}`
+          `https://rickandmortyapi.com/api/character?name=${query}`,
+          {
+            signal,
+          }
         );
 
         setCharacters(data.results);
@@ -31,11 +37,13 @@ export function App() {
         setIsLoading(false);
       }
     }
-    if (query.length > 3) {
-      setCharacters([]);
-      return;
-    }
 
+    // if (query.length > 3) {
+    //   setCharacters([]);
+    //   return;
+    // }
+
+    fetchAllCharacters();
     fetchAllCharacters();
   }, [query]);
 
