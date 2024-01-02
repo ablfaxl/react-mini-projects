@@ -17,7 +17,7 @@ const CharacterList = ({ characters, onSelectCharacter, selectedId }) => {
 
 export default CharacterList;
 
-function Character({ character, onSelectCharacter, selectedId }) {
+export function Character({ character, onSelectCharacter, selectedId }) {
   return (
     <div className="list__item">
       <img src={character.image} alt={character.name} />
