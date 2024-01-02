@@ -1,4 +1,4 @@
-import { HeartIcon } from '@heroicons/react/24/outline';
+import { HeartIcon, TrashIcon } from '@heroicons/react/24/outline';
 import { useState } from 'react';
 import Modal from './Modal';
 import { Character } from './CharacterList';
@@ -38,7 +38,11 @@ export function Favorite({ favorite }) {
     <>
       <Modal title="Favorite" open={isOpen} onOpen={setIsOpen}>
         {favorite.map((item) => (
-          <Character key={item.id} character={item} />
+          <Character key={item.id} character={item}>
+            <button>
+              <TrashIcon className="icon" />
+            </button>
+          </Character>
         ))}
       </Modal>
       <button onClick={() => setIsOpen((o) => !o)} className="heart">
