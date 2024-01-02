@@ -54,6 +54,7 @@ export function App() {
           <Loading />
         ) : (
           <CharacterList
+            selectedId={selectedId}
             characters={characters}
             onSelectCharacter={handleSelectCharacter}
           />
