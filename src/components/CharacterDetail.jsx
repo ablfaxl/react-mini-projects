@@ -109,25 +109,31 @@ function CharacterSubInfo({ character, isAddedToFavorite, onAddFavorite }) {
 function EpisodeList({ episodes }) {
   const [sortBy, setSortBy] = useState(false);
 
+  const toggleSort = () => {
+    setSortBy((is) => !is);
+  };
+
   let sortedEpisodes;
   if (sortBy) {
     sortedEpisodes = [...episodes].sort(
       (a, b) => new Date(a.created) - new Date(b.created)
     );
   } else {
-    sortedEpisodes = episodes;
+    sortedEpisodes = [...episodes].sort(
+      (a, b) => new Date(b.created) - new Date(a.created)
+    );
   }
 
   return (
     <div className="character-episodes">
       <div className="title">
         <h2>List of Episodes:</h2>
-        <button>
+        <button onClick={toggleSort}>
           <ArrowUpCircleIcon className="icon" />
         </button>
       </div>
       <ul>
-        {episodes.map((item, index) => (
+        {sortedEpisodes.map((item, index) => (
           <li key={item.id}>
             <div>
               {/* for sorting index number */}
