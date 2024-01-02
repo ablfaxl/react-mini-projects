@@ -27,7 +27,7 @@ export function App() {
           { signal }
         );
 
-        setCharacters(data.results);
+        setCharacters(data.results.slice(0, 6));
         setIsLoading(false);
       } catch (error) {
         if (axios.isCancel()) {
@@ -56,7 +56,9 @@ export function App() {
   const isAddedToFavorite = favorite.some((char) => char.id === selectedId);
   return (
     <div className="app">
-      <Modal />
+      <Modal title="this is title" open={true}>
+        <p>this is modal</p>
+      </Modal>
       <Toaster />
       <Navbar>
         <Search query={query} setQuery={setQuery} />
