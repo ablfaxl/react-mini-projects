@@ -48,6 +48,9 @@ export function App() {
     };
   }, [query]);
 
+  useEffect(() => {
+    localStorage.setItem('FAVORITE', JSON.stringify(favorite));
+  }, [favorite]);
   const handleSelectCharacter = (id) => {
     setSelectedId(id);
   };
