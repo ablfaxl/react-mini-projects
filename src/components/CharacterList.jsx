@@ -9,7 +9,14 @@ const CharacterList = ({ characters, onSelectCharacter, selectedId }) => {
           character={character}
           onSelectCharacter={onSelectCharacter}
           selectedId={selectedId}
-        />
+        >
+          <button
+            className="icon red"
+            onClick={() => onSelectCharacter(character.id)}
+          >
+            {selectedId === character.id ? <EyeSlashIcon /> : <EyeIcon />}
+          </button>
+        </Character>
       ))}
     </div>
   );
@@ -17,18 +24,13 @@ const CharacterList = ({ characters, onSelectCharacter, selectedId }) => {
 
 export default CharacterList;
 
-export function Character({ character, onSelectCharacter, selectedId }) {
+export function Character({ character, children }) {
   return (
     <div className="list__item">
       <img src={character.image} alt={character.name} />
       <CharacterName item={character} />
       <CharacterInfo item={character} />
-      <button
-        className="icon red"
-        onClick={() => onSelectCharacter(character.id)}
-      >
-        {selectedId === character.id ? <EyeSlashIcon /> : <EyeIcon />}
-      </button>
+      {children}
     </div>
   );
 }
