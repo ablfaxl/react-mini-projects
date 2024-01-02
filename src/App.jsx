@@ -67,6 +67,7 @@ export function App() {
         <CharacterDetail
           selectedId={selectedId}
           onAddFavorite={handleAddFavorite}
+          isAddedToFavorite={isAddedToFavorite}
         />
       </div>
     </div>

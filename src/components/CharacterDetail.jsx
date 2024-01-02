@@ -4,7 +4,7 @@ import axios from 'axios';
 import toast from 'react-hot-toast';
 import Loading from './Loading';
 
-const CharacterDetail = ({ selectedId, onAddFavorite }) => {
+const CharacterDetail = ({ selectedId, onAddFavorite, isAddedToFavorite }) => {
   const [character, setCharacter] = useState(null);
   const [isLoading, setIsLoading] = useState(false);
   const [episodes, setEpisodes] = useState([]);
