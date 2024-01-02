@@ -108,6 +108,16 @@ function CharacterSubInfo({ character, isAddedToFavorite, onAddFavorite }) {
 
 function EpisodeList({ episodes }) {
   const [sortBy, setSortBy] = useState(false);
+
+  let sortedEpisodes;
+  if (sortBy) {
+    sortedEpisodes = [...episodes].sort(
+      (a, b) => new Date(a.created) - new Date(b.created)
+    );
+  } else {
+    sortedEpisodes = episodes;
+  }
+
   return (
     <div className="character-episodes">
       <div className="title">
