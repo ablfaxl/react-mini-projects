@@ -43,7 +43,10 @@ export function App() {
     setSelectedId(id);
   };
   const handleAddFavorite = (char) => {
-    setFavorite([...favorite, char]);
+    if (favorite.find((f) => f.id === char.id)) {
+      return;
+    }
+    setFavorite((prevFav) => [...prevFav, char]);
   };
 
   return (
