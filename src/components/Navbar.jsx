@@ -49,7 +49,7 @@ export function Favorite({ favorite, onDeleteFavorite }) {
             </Character>
           ))
         ) : (
-          <div style={{ color: 'white' }}>No Favorite</div>
+          <div style={{ color: 'white' }}>No Favorite 🧐</div>
         )}
       </Modal>
       <button onClick={() => setIsOpen((o) => !o)} className="heart">
