@@ -6,6 +6,7 @@ import Navbar, { Favorite, Search, SearchResult } from './components/Navbar';
 import Loading from './components/Loading';
 import toast, { Toaster } from 'react-hot-toast';
 import axios from 'axios';
+import Modal from './components/Modal';
 
 export function App() {
   const [characters, setCharacters] = useState([]);
@@ -55,6 +56,7 @@ export function App() {
   const isAddedToFavorite = favorite.some((char) => char.id === selectedId);
   return (
     <div className="app">
+      <Modal />
       <Toaster />
       <Navbar>
         <Search query={query} setQuery={setQuery} />
