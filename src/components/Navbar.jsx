@@ -1,6 +1,7 @@
 import { HeartIcon } from '@heroicons/react/24/outline';
 import { useState } from 'react';
 import Modal from './Modal';
+import { Character } from './CharacterList';
 const Navbar = ({ children }) => {
   return (
     <nav className="navbar">
@@ -36,7 +37,14 @@ export function Favorite({ favorite }) {
   return (
     <>
       <Modal title="Favorite" open={isOpen} onOpen={setIsOpen}>
-        {/* <p>{favorite}</p> */}
+        {favorite.map((item) => (
+          <Character
+            key={item.id}
+            character={item}
+            onSelectCharacter={() => {}}
+            selectedId={''}
+          />
+        ))}
       </Modal>
       <button onClick={() => setIsOpen((o) => !o)} className="heart">
         <HeartIcon className="icon" />
