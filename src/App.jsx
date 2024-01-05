@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react';
+import { useState } from 'react';
 import './App.css';
 import CharacterDetail from './components/CharacterDetail';
 import CharacterList from './components/CharacterList';
