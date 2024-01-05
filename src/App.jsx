@@ -15,13 +15,14 @@ export function App() {
     query
   );
   const [selectedId, setSelectedId] = useState(null);
-  const [favorite, setFavorite] = useState(
-    () => JSON.parse(localStorage.getItem('FAVORITE')) || []
-  );
+  // const [favorite, setFavorite] = useState(
+  //   () => JSON.parse(localStorage.getItem('FAVORITE')) || []
+  // );
 
-  useEffect(() => {
-    localStorage.setItem('FAVORITE', JSON.stringify(favorite));
-  }, [favorite]);
+  // useEffect(() => {
+  //   localStorage.setItem('FAVORITE', JSON.stringify(favorite));
+  // }, [favorite]);
+
   const handleSelectCharacter = (id) => {
     setSelectedId(id);
   };
