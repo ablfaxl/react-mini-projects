@@ -7,6 +7,7 @@ import Loading from './components/Loading';
 import { Toaster } from 'react-hot-toast';
 
 import useCharacters from './hooks/useCharcters';
+import useLocalStorage from './hooks/useLocalStorage';
 
 export function App() {
   const [query, setQuery] = useState('');
@@ -15,13 +16,7 @@ export function App() {
     query
   );
   const [selectedId, setSelectedId] = useState(null);
-  // const [favorite, setFavorite] = useState(
-  //   () => JSON.parse(localStorage.getItem('FAVORITE')) || []
-  // );
-
-  // useEffect(() => {
-  //   localStorage.setItem('FAVORITE', JSON.stringify(favorite));
-  // }, [favorite]);
+  const [favorite, setFavorite] = useLocalStorage('FAVORITE', []);
 
   const handleSelectCharacter = (id) => {
     setSelectedId(id);
